@@ -68,12 +68,11 @@ class State(TypedDict):
     audio: str
     video_parts: List[str]
     video_path: str
-
+```
 - **slides** : 전체 슬라이드 원본 정보 (강의 맥락 유지용)
 - **texts / tables / images** : 현재 슬라이드 처리용 데이터
 - **slide_index** : 슬라이드 반복 제어 핵심 키
 - **video_parts** : 슬라이드별 영상 누적 결과
-```
 
 ---
 

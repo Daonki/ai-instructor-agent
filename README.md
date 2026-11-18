@@ -1,4 +1,4 @@
-# 🎓 AI Instructor Agent
+# AI Instructor Agent
 ### PPT-based Lecture Video Generation using State-driven Multimodal Agent
 
 본 프로젝트는 PPT 파일을 입력으로 받아  
@@ -11,43 +11,43 @@ LangGraph를 활용해 각 단계를 독립적인 노드로 구성하고,
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
-### 🎯 목표
+### 목표
 - PPT 기반 강의 콘텐츠 자동 생성
 - 슬라이드 단위 처리 + 전체 강의 흐름 유지
 - 단순 나레이션이 아닌 **강의 맥락을 고려한 설명 영상 생성**
 
 ---
 
-## 🧩 Input & Output
+## Input & Output
 
-### 📥 Input
+### Input
 - PPTX 파일
 - 강의 옵션
   - 강의 난이도 (Beginner / Intermediate / Advanced)
   - 강의 톤 (설명형 / 강의형)
   - 음성 스타일
 
-### 📤 Output
+### Output
 - 슬라이드 기반 강의 영상 (`.mp4`)
 - 슬라이드별 음성 및 영상 중간 결과
 
 ---
 
-## 🧠 Problem Definition
+## Problem Definition
 
 ### 왜 Agent 구조인가?
 - 슬라이드 수가 고정되지 않음
 - 각 단계가 **이전 결과에 의존**
 - 반복·분기·누적 결과 관리 필요
 
-👉 따라서 단순 파이프라인이 아닌  
+따라서 단순 파이프라인이 아닌  
 **State를 공유하는 Agent Graph 구조**로 문제를 재정의
 
 ---
 
-## 🗂️ State Design
+## State Design
 
 모든 노드는 공통 State를 중심으로 동작합니다.
 
@@ -76,7 +76,7 @@ class State(TypedDict):
 
 ---
 
-## 🔍 Step 1. PPT Information Extraction
+## Step 1. PPT Information Extraction
 
 - **python-pptx** 활용
 - 슬라이드별 정보 분해
@@ -86,16 +86,16 @@ class State(TypedDict):
   - 이미지
 - 슬라이드 스냅샷 자동 생성
 
-📌 **슬라이드 전체를 순회하며 구조화된 데이터로 변환**
+**슬라이드 전체를 순회하며 구조화된 데이터로 변환**
 ---
 
-## 🧠 Step 2. Lecture Context Summarization
+## Step 2. Lecture Context Summarization
 
 - 모든 슬라이드를 기반으로 **전체 강의 흐름 요약**
 - 슬라이드 간 단절을 방지하기 위한 전역 컨텍스트 생성
 - 각 페이지 스크립트 생성 시 공통 참조 정보로 활용
 
-📌 목적  
+목적  
 > 페이지별 설명이 아닌,  
 > **하나의 강의처럼 자연스럽게 이어지는 설명 생성**
 

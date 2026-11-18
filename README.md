@@ -9,10 +9,15 @@
 LangGraph를 활용해 각 단계를 독립적인 노드로 구성하고,  
 슬라이드 수에 따라 자동으로 반복·종료되는 **Agent Graph 구조**로 설계했습니다.
 
+> **KT AIVLE School 8기 · 팀 프로젝트 (4인) · 2025.11.10 ~ 11.13**
+>
+> **내 담당**
+> - 모듈 간 출력 형식을 통일해 전체 흐름이 중간에 깨지던 문제 해결
+> - TTS 음성 품질 개선 (발음 · 속도 · 간격)
+
 ---
 
 ## Project Overview
-
 ### 목표
 - PPT 기반 강의 콘텐츠 자동 생성
 - 슬라이드 단위 처리 + 전체 강의 흐름 유지
@@ -87,6 +92,7 @@ class State(TypedDict):
 - 슬라이드 스냅샷 자동 생성
 
 **슬라이드 전체를 순회하며 구조화된 데이터로 변환**
+
 ---
 
 ## Step 2. Lecture Context Summarization
@@ -179,7 +185,7 @@ class State(TypedDict):
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Language**: Python  
 - **LLM**: OpenAI GPT-4o-mini  
@@ -189,6 +195,14 @@ class State(TypedDict):
 - **Video**: FFmpeg  
 - **UI**: Gradio  
 - **Environment**: Google Colab  
+
+---
+
+## How to Run
+
+1. Google Colab에서 `Step1_AI_강의영상_제작.ipynb` → `Step2_AI_강의영상_고도화.ipynb` 순서로 실행
+2. OpenAI API 키, SerpAPI 키 필요
+3. PPTX 파일을 업로드하고 난이도 · 강의 톤 · 음성 스타일을 고른 뒤 실행 (FFmpeg로 영상 생성)
 
 ---
 

@@ -101,19 +101,19 @@ class State(TypedDict):
 
 ---
 
-## 🔎 Step 3. External Search-based Enrichment
+## Step 3. External Search-based Enrichment
 
 - 슬라이드 제목을 기준으로 **SerpAPI 검색**
 - PPT에 포함되지 않은 배경 지식, 개념 설명 보완
 - 기술/이론/사례 중심 정보 자동 확장
 
-📌 효과  
+효과  
 - 정보 밀도 향상  
 - 설명의 전문성 및 신뢰도 강화
 
 ---
 
-## ✍️ Step 4. Lecture Script Generation
+## Step 4. Lecture Script Generation
 
 - 슬라이드 위치에 따른 **동적 프롬프트 전략**
   - 첫 장: 강의 도입 및 주제 제시
@@ -124,37 +124,37 @@ class State(TypedDict):
   - `context_summary`
   - 이전 슬라이드 스크립트
 
-📌 결과  
+결과  
 - **말로 읽기 자연스러운 강의 대본 생성**
 - 단순 요약이 아닌 설명 중심 스크립트
 
 ---
 
-## 🔊 Step 5. Text-to-Speech (TTS)
+## Step 5. Text-to-Speech (TTS)
 
 - OpenAI TTS 모델 활용
 - 강의 톤에 맞는 음성 스타일 적용
 - 슬라이드별 음성 파일 생성
 
-📌 특징  
+특징  
 - 강의용 말투 유지  
 - 페이지 단위 음성 분리로 재사용 가능
 
 ---
 
-## 🎬 Step 6. Video Generation
+## Step 6. Video Generation
 
 - 슬라이드 스냅샷 + 음성 → 슬라이드별 영상 생성
 - `ffmpeg` 기반 영상 처리
 - 모든 슬라이드 영상 병합하여 최종 강의 영상 생성
 
-📌 설계 포인트  
+설계 포인트  
 - 슬라이드 단위 영상 생성 → 디버깅 및 안정성 향상  
 - `-c copy` 옵션을 통한 빠른 병합
 
 ---
 
-## 🔁 Agent Graph & Iteration Logic
+## Agent Graph & Iteration Logic
 
 - `slide_index`를 상태(State)로 관리
 - 각 슬라이드 처리 후 index 증가
@@ -162,11 +162,11 @@ class State(TypedDict):
   - 남은 슬라이드 존재 → CONTINUE
   - 마지막 슬라이드 → DONE
 
-📌 슬라이드 수와 무관한 **자동 반복 구조**
+슬라이드 수와 무관한 **자동 반복 구조**
 
 ---
 
-## 🖥️ Web Interface (Gradio)
+## Web Interface (Gradio)
 
 - PPT 파일 업로드
 - 강의 옵션 선택
@@ -175,7 +175,7 @@ class State(TypedDict):
   - 음성 스타일
 - 생성된 강의 영상 다운로드
 
-📌 데모 및 서비스 관점 인터페이스 제공
+데모 및 서비스 관점 인터페이스 제공
 
 ---
 
@@ -192,7 +192,7 @@ class State(TypedDict):
 
 ---
 
-## 🔑 Key Insights
+## Key Insights
 
 - LLM 활용에서 **문제 구조 설계가 성능만큼 중요**
 - State 기반 Agent 구조는
@@ -203,7 +203,7 @@ class State(TypedDict):
 
 ---
 
-## ⚠️ Limitations
+## Limitations
 
 - 음성 자연도 개선 여지
 - 자막 자동 생성 미포함
@@ -211,7 +211,7 @@ class State(TypedDict):
 
 ---
 
-## 🚀 Future Work
+## Future Work
 
 - 자동 자막 생성
 - 강의 스타일 프리셋 관리
@@ -220,7 +220,7 @@ class State(TypedDict):
 
 ---
 
-## ✍️ Summary
+## Summary
 
 > PPT를 입력으로 받아  
 > 슬라이드 단위로 상태를 관리하며  
